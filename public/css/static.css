@@ -1,0 +1,49 @@
+:root {
+    --background: white;
+    --primaryBG: rgb(7, 43, 134);
+    --secondaryBG: #FFF500;
+    --inputShadow: rgba(88, 47, 245, 0.5);
+    --borderColor: rgba(0, 0, 0, .05);
+    --textGrey: #636380;
+    --txtColor: #39394e;
+    --backgroundHeader: rgba(0, 0, 0, 0.04);
+    --backgroundEven: rgba(0, 0, 0, 0.02);
+}
+/* dark */
+/* :root {
+  --secondaryBG: #ff7043;
+  --background: #1E1E1E;
+  --primaryBG: #582ff5;
+  --inputShadow: rgba(88, 47, 245, 0.5);
+  --borderColor: rgba(255, 255, 255, .02);
+  --textGrey: #a6a6a6;
+  --txtColor:#f2f2f2;
+  --backgroundHeader: rgba(255,255,255,0.06);
+  --backgroundEven: rgba(255,255,255,0.03);
+}  */
+/* --primaryBG: #582ff5;
+--secondaryBG: #ff7043; */
+body {
+    background-color: var(--background);
+}
+
+html body * {
+    margin: 0;
+    text-decoration: none;
+    padding: 0;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.check-label {
+    color: green;
+    margin-left: 5px;
+    display: none;
+}
+
+label.error {
+    color: rgba(255, 0, 0, 0.7);
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 5px;
+}
