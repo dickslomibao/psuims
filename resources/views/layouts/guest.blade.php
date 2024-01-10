@@ -21,7 +21,7 @@
             height: 100vh;
             margin: 0;
             padding: 0;
-            background-image: url('/b1.png') !important;
+            background-image: url('/logo/bglogin.png') !important;
             background-size: cover;
             background-position: center;
             display: flex;
@@ -60,7 +60,7 @@
 <body>
     <div>
         <center>
-            <img src="/logo/LOGO 1.png" style="margin-bottom: 20px;height:100px" alt="" style=""
+            <img src="/logo/LOGO 3.png" style="margin-bottom: 20px;height:100px" alt="" style=""
                 srcset="">
         </center>
         <div class="login">

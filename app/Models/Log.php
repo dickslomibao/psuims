@@ -13,7 +13,8 @@ class Log extends Model
         'repo_id',
         'process_by',
         'code',
-        'feedback'
+        'feedback',
+        'trial',
     ];
 
     public function proccessBy()

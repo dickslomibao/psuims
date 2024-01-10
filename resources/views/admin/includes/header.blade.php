@@ -20,14 +20,11 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap5.2.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/data_table_bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/messages.css') }}">
     <script src="{{ asset('js/jq.js') }}"></script>
-
     <script src="{{ asset('js/bootstrap5.2.js') }}"></script>
     <script src="{{ asset('js/data_table.js') }}"></script>
     <script src="{{ asset('js/data_table_bootstrap.js') }}"></script>
     <script src="{{ asset('js/moment.js') }}"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
@@ -49,7 +46,7 @@
 
             <div class="d-flex align-items-center justify-content-center top">
                 <div class="logo">
-                    <img src="/logo/LOGO 3.png" alt="" height="80">
+                    <img src="/logo/LOGO 3.png" alt="" height="70">
 
                 </div>
             </div>

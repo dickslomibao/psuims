@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\CampusController;
 use App\Http\Controllers\Admin\CollegeControler;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\MatrixController;
+use App\Http\Controllers\Faculty\DeparmentEvaluator;
+use App\Http\Controllers\Faculty\MyImsController;
 use App\Http\Controllers\FileRepoController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Campuse;
@@ -64,24 +66,45 @@ Route::prefix('admin')->group(function () {
         Route::POST('/matrix/{id}/view/criteria/add', 'addMatrixCiteria')->name('add.matrix_criteria');
     });
 });
-Route::prefix('file')->group(function () {
+Route::prefix('instructionalmaterials')->group(function () {
     Route::controller(FileRepoController::class)->group(function () {
         Route::get('/', 'index')->name('index.file');
-        Route::get('/repository', 'repo')->name('index.repo');
-        Route::get('/repository/{id}/details', 'view')->name('view.repo');
-        Route::POST('/repository/{id}/addcomment', 'addComments')->name('comment.repo');
-        Route::POST('/repository/{id}/plagirism', 'completePlagiarism')->name('plagiarism.repo');
-        Route::POST('/repository/{id}/setMatrix', 'setMatrix')->name('set_matrix.repo');
-        Route::get('/repository/{id}/viewAddScore', 'viewAddScore')->name('view_add_score.repo');
-        Route::get('/repository/{id}/viewAddScore/university', 'viewAddScoreUniversity')->name('view_add_score.repo');
-        Route::POST('/repository/{id}/viewAddScore/university', 'updateScoreUniversity');
-        Route::get('/repository/{id}/download', 'download')->name('download.repo');
-        Route::POST('/repository/{id}/update', 'updateRepo')->name('update.repo');
-        Route::POST('/repository/{id}/completeVps', 'completeVps')->name('vps.repo');
-        Route::get('/repository/{id}/viewScoreOnly', 'viewScore')->name('view_score.repo');
-        Route::POST('/repository/{id}/viewAddScore', 'updateScore')->name('update_score.repo');
-        Route::POST('/repository', 'getRepo')->name('get.repo');
-        Route::POST('/repository/store', 'upload')->name('upload.repo');
+        Route::get('/evaluate', 'repo')->name('index.repo');
+        Route::get('/evaluate/{id}/details', 'view')->name('view.repo');
+        Route::POST('/evaluate/{id}/addcomment', 'addComments')->name('comment.repo');
+        Route::POST('/evaluate/{id}/plagirism', 'completePlagiarism')->name('plagiarism.repo');
+        Route::POST('/evaluate/{id}/setMatrix', 'setMatrix')->name('set_matrix.repo');
+        Route::get('/evaluate/{id}/viewAddScore/department', 'viewAddScore')->name('view_add_score_department.repo');
+        Route::POST('/evaluate/{id}/viewAddScore/department', 'AddDepartmentScore');
+        Route::get('/evaluate/{id}/viewAddScore/university', 'viewAddScoreUniversity')->name('view_add_score_university.repo');
+        Route::POST('/evaluate/{id}/viewAddScore/university', 'AddScoreUniversity');
+        Route::get('/evaluate/{id}/download', 'download')->name('download.repo');
+        Route::POST('/evaluate/{id}/update', 'updateRepo')->name('update.repo');
+        Route::POST('/evaluate/{id}/completeVps', 'completeVps')->name('vps.repo');
+        Route::get('/evaluate/{id}/viewScoreOnly/department', 'viewDepartmentScore')->name('view_score_department.repo');
+        Route::get('/evaluate/{id}/viewScoreOnly/university', 'viewUniversityScore')->name('view_score_university.repo');;
+        Route::POST('/evaluate', 'getRepo')->name('get.repo');
+        Route::POST('/evaluate/store', 'upload')->name('upload.repo');
+        Route::post('/{id}/addmore', 'additionalDepartmentEvaluator')->name('addmorede.repo');
+        Route::get('/{id}/logsdownload', 'downloadFileLogs')->name('dllogs.repo');
+    });
+});
+Route::prefix('myims')->group(function () {
+    Route::controller(MyImsController::class)->group(function () {
+        Route::get('/', 'index')->name('index.myims');
+        Route::post('/', 'upload')->name('create.myims');
+        Route::get('/{id}/details', 'view')->name('view.myims');
+        Route::post('/{id}/reupload', 'reuploadIms')->name('reupload.myims');
+        Route::post('/get', 'getMyIms')->name('get.myims');
+    });
+});
+
+Route::prefix('departmentevaluator')->group(function () {
+    Route::controller(DeparmentEvaluator::class)->group(function () {
+        Route::get('/', 'index')->name('index.departmentevaluator');
+        Route::get('/{id}/remove', 'remove')->name('remove.departmentevaluator');
+        Route::post('/', 'create')->name('create.departmentevaluator');
+        Route::post('/get', 'getDepartmentEvaluator')->name('get.departmentevaluator');
     });
 });
 
@@ -184,7 +207,7 @@ Route::get('/', function (Request $request) {
     if (Auth::user()->type == 2) {
         return redirect('/admin');
     } else {
-        return redirect('/file');
+        return redirect('/myims');
     }
 })->middleware('auth');
 Route::get('/dashboard', function () {

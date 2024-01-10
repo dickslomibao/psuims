@@ -36,7 +36,7 @@
 
             <x-primary-button class="" style="width: 100%;background:#0047FF;display:flex;justify-content:center">
                 <center>
-                    Logins
+                    Login
                 </center>
             </x-primary-button>
         </div>

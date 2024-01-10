@@ -112,7 +112,7 @@
 <body>
     <div class="r-container">
         <div class="left">
-            <img src="/side-login.png">
+            <img src="/logo/bgreg.png">
         </div>
         <div class="right">
             <h4>Create an account</h4>
@@ -213,7 +213,6 @@
                                 <option value="2">Chair</option>
                                 <option value="3">C.F.L</option>
                                 <option value="4.1">University Evaluator</option>
-                                <option value="4.2">Department Evaluator</option>
                                 <option value="5">V.P</option>
                                 <option value="6">GP</option>
                             </select>

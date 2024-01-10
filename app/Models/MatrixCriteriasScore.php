@@ -21,6 +21,21 @@ class MatrixCriteriasScore extends Model
     {
         return $this->hasMany(MatrixSubCriteriasScore::class, 'matrix_criterias_scores_id', 'id');
     }
+    public function getAverageOfDeAttribute($trial, $user_id)
+    {
+        return ImDepartmentScore::where('matrix_critertias_score_id', $this->id)
+            ->where('trial', $trial)
+            ->where('user_id', $user_id)
+            ->sum('score');
+    }
+
+    public function getAverageOfUeAttribute($trial, $user_id)
+    {
+        return ImUniversityScore::where('matrix_critertias_score_id', $this->id)
+            ->where('trial', $trial)
+            ->where('user_id', $user_id)
+            ->sum('score');
+    }
 
     public function by()
     {

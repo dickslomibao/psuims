@@ -1,7 +1,7 @@
 .side-nav {
     z-index: 200;
     position: fixed;
-    width: 250px;
+    width: 280px;
     background-color: #072B86;
     height: 100vh;
     border-right: 1px solid var(--borderColor);
@@ -10,16 +10,13 @@
     justify-content: space-between;
 }
 
-.side-nav .top {
-    padding: 0 15px;
-}
 
 .side-nav .container-links {
     padding: 15px;
     height: calc(100vh - 61px);
     overflow-y: auto;
     -ms-overflow-style: none;
- 
+
     scrollbar-width: none;
 }
 
@@ -35,8 +32,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin: 10px 0 10px 0;
+
+    margin: 15px 0 0 0;
 }
 
 .side-nav .bottom-section {
@@ -51,7 +48,8 @@
 }
 
 .side-nav ul li {
-    border-radius: 5px;
+    border-left: 5px var(--primaryBG) solid;
+    border-radius: 10px;
     margin-bottom: 5px;
     padding: 8px 16px;
 }
@@ -62,24 +60,32 @@
     font-size: 14px;
     color: #fff;
 }
-.side-nav  span{
+
+.side-nav span {
     color: whitesmoke;
 }
+
 .side-nav ul li:hover {
     background-color: rgb(88, 47, 245, 0.05);
 }
+
 #example_wrapper * {
     font-size: 15px;
 }
+
 .side-nav ul li a i {
     width: 30px;
 }
+
 .side-nav ul .active {
+
     background-color: #FFF500;
 }
+
 .side-nav ul .active:hover {
     background-color: #FFF500;
 }
+
 .toggle-half {
     position: absolute;
     left: 97%;
@@ -91,33 +97,35 @@
 .side-nav ul .active a {
     color: #072B86 !important;
 }
-.side-nav ul .active a span{
+
+.side-nav ul .active a span {
     color: #072B86 !important;
 }
+
 .side-nav .selected-route {
     border-left: 5px var(--secondaryBG) solid;
-    padding-left: 9px;
+
 }
 
 .right-content {
     background-color: var(--background);
     position: absolute;
     right: 0;
-    width: calc(100% - 250px);
+    width: calc(100% - 280px);
     height: 100vh;
 }
 
 .right-content .header {
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: whitesmoke;
+
     z-index: 100;
     position: fixed;
     align-items: center;
     justify-content: space-between;
     display: flex;
     padding: 20.4px 20px;
-    width: calc(100% - 250px);
-    border-bottom: 1px solid var(--borderColor);
+    width: calc(100% - 280px);
+
 }
 
 .right-content .header .title {
