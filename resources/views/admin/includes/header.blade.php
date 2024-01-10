@@ -30,6 +30,8 @@
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet"
         type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="stylesheet" href="{{ asset('css/sidenav.css') }}">
     <script>
         $.ajaxSetup({

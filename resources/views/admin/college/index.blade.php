@@ -12,7 +12,7 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Status</th>
+
                         <th>Date Created</th>
                         <th>Date Updated</th>
                         <th width="50">Action</th>
@@ -56,23 +56,23 @@
                 order: [3, 'desc'],
                 data: response,
                 columns: [
-                   
+
                     {
                         data: 'name'
                     },
-                    {
-                        data: 'status',
-                        render: function(data, type, row) {
-                            switch (data) {
-                                case 1:
-                                    return "Active";
-                                case 2:
-                                    return "Inactive";
-                                default:
-                                    break;
-                            }
-                        }
-                    },
+                    // {
+                    //     data: 'status',
+                    //     render: function(data, type, row) {
+                    //         switch (data) {
+                    //             case 1:
+                    //                 return "Active";
+                    //             case 2:
+                    //                 return "Inactive";
+                    //             default:
+                    //                 break;
+                    //         }
+                    //     }
+                    // },
                     {
                         data: 'created_at',
                         render: function(data, type, row) {

@@ -11,9 +11,9 @@
             </div>
             <table id="table" class="table" style="width:100%">
                 <thead>
-                    <tr>          
+                    <tr>
                         <th>Name</th>
-                        <th>Status</th>
+                        <th>Addres</th>
                         <th>Date Created</th>
                         <th>Date Updated</th>
                         <th width="50">Action</th>
@@ -23,7 +23,6 @@
         </div>
     </div>
 </div>
-
 <!-- Modal -->
 <div class="modal fade" id="addCampusForm" tabindex="-1" aria-labelledby="addCampusFormLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -58,26 +57,16 @@
         url: "{{ route('retrieve.campus') }}",
 
         success: function(response) {
-            
+
             table = $('#table').DataTable({
                 order: [4, 'desc'],
                 data: response,
-                columns: [
-                    {
+                columns: [{
                         data: 'name'
                     },
                     {
-                        data: 'status',
-                        render: function(data, type, row) {
-                            switch (data) {
-                                case 1:
-                                    return "Active";
-                                case 2:
-                                    return "Inactive";
-                                default:
-                                    break;
-                            }
-                        }
+                        data: 'address',
+
                     },
                     {
                         data: 'created_at',
@@ -98,7 +87,7 @@
                                                
                                             </i>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item">View Order</a></li>
+                                                <li><a class="dropdown-item"></a></li>
                                                 
                                             </ul>
                                         </div>`;
