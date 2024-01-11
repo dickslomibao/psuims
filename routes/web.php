@@ -109,90 +109,90 @@ Route::prefix('departmentevaluator')->group(function () {
 });
 
 
-Route::get('/init', function () {
-    Campuse::create([
-        'name' => 'Urdeneta City Campus',
-        'address' => 'Urdaneta City, Pangasinan'
-    ]);
-    Campuse::create([
-        'name' => 'Bayambang Campus',
-        'address' => 'Bayambang, Pangasinan'
-    ]);
+// Route::get('/init', function () {
+//     Campuse::create([
+//         'name' => 'Urdeneta City Campus',
+//         'address' => 'Urdaneta City, Pangasinan'
+//     ]);
+//     Campuse::create([
+//         'name' => 'Bayambang Campus',
+//         'address' => 'Bayambang, Pangasinan'
+//     ]);
 
-    Campuse::create([
-        'name' => 'Santa Maria Campus',
-        'address' => 'Santa Maria, Pangasinan'
-    ]);
+//     Campuse::create([
+//         'name' => 'Santa Maria Campus',
+//         'address' => 'Santa Maria, Pangasinan'
+//     ]);
 
-    College::create([
-        'name' => 'College of computing'
-    ]);
-    College::create([
-        'name' => 'College of engineering'
-    ]);
-    Department::create(
-        [
-            'college_id' => 1,
-            'name' => 'Information Technology'
-        ]
-    );
-    Department::create(
-        [
-            'college_id' => 2,
-            'name' => 'Civil engineering'
-        ]
-    );
-    Type::create([
-        'name' => 'Course book',
-    ]);
-    Type::create([
-        'name' => 'Textbook',
-    ]);
-    Type::create([
-        'name' => 'Course book',
-    ]);
-    Type::create([
-        'name' => 'Modules',
-    ]);
-    Type::create([
-        'name' => 'Laboratory manual',
-    ]);
-    Type::create([
-        'name' => 'Prototype',
-    ]);
-    User::create([
-        'campus_id' => 0,
-        'college_id' => 0,
-        'department_id' => 0,
-        'designation' => '4.2',
-        'profile_image' =>  'storage/public/miimRWzVuSaai9X13mtTVgueTbQZylASfHMYhe3h.jpg',
-        'name' => 'Admin',
-        'email' => 'admin@gmail.com',
-        'password' => Hash::make('123123123'),
-        'type' => 2,
-    ]);
-    User::create([
-        'campus_id' => 1,
-        'college_id' => 1,
-        'department_id' => 1,
-        'designation' => '4.2',
-        'profile_image' =>  'storage/public/miimRWzVuSaai9X13mtTVgueTbQZylASfHMYhe3h.jpg',
-        'name' => 'Testing (evaluator)',
-        'email' => 'eval123@gmail.com',
-        'password' => Hash::make('123123123'),
+//     College::create([
+//         'name' => 'College of computing'
+//     ]);
+//     College::create([
+//         'name' => 'College of engineering'
+//     ]);
+//     Department::create(
+//         [
+//             'college_id' => 1,
+//             'name' => 'Information Technology'
+//         ]
+//     );
+//     Department::create(
+//         [
+//             'college_id' => 2,
+//             'name' => 'Civil engineering'
+//         ]
+//     );
+//     Type::create([
+//         'name' => 'Course book',
+//     ]);
+//     Type::create([
+//         'name' => 'Textbook',
+//     ]);
+//     Type::create([
+//         'name' => 'Course book',
+//     ]);
+//     Type::create([
+//         'name' => 'Modules',
+//     ]);
+//     Type::create([
+//         'name' => 'Laboratory manual',
+//     ]);
+//     Type::create([
+//         'name' => 'Prototype',
+//     ]);
+//     User::create([
+//         'campus_id' => 0,
+//         'college_id' => 0,
+//         'department_id' => 0,
+//         'designation' => '4.2',
+//         'profile_image' =>  'storage/public/miimRWzVuSaai9X13mtTVgueTbQZylASfHMYhe3h.jpg',
+//         'name' => 'Admin',
+//         'email' => 'admin@gmail.com',
+//         'password' => Hash::make('123123123'),
+//         'type' => 2,
+//     ]);
+//     User::create([
+//         'campus_id' => 1,
+//         'college_id' => 1,
+//         'department_id' => 1,
+//         'designation' => '4.2',
+//         'profile_image' =>  'storage/public/miimRWzVuSaai9X13mtTVgueTbQZylASfHMYhe3h.jpg',
+//         'name' => 'Testing (evaluator)',
+//         'email' => 'eval123@gmail.com',
+//         'password' => Hash::make('123123123'),
 
-    ]);
-    User::create([
-        'campus_id' => 1,
-        'college_id' => 1,
-        'department_id' => 1,
-        'designation' => '1',
-        'profile_image' =>  'storage/public/miimRWzVuSaai9X13mtTVgueTbQZylASfHMYhe3h.jpg',
-        'name' => 'Dick Lomibao (faculty)',
-        'email' => 'dick@gmail.com',
-        'password' => Hash::make('123123123'),
-    ]);
-});
+//     ]);
+//     User::create([
+//         'campus_id' => 1,
+//         'college_id' => 1,
+//         'department_id' => 1,
+//         'designation' => '1',
+//         'profile_image' =>  'storage/public/miimRWzVuSaai9X13mtTVgueTbQZylASfHMYhe3h.jpg',
+//         'name' => 'Dick Lomibao (faculty)',
+//         'email' => 'dick@gmail.com',
+//         'password' => Hash::make('123123123'),
+//     ]);
+// });
 Route::get('/logout', function (Request $request) {
     Auth::guard('web')->logout();
 
@@ -207,11 +207,23 @@ Route::get('/', function (Request $request) {
     if (Auth::user()->type == 2) {
         return redirect('/admin');
     } else {
-        return redirect('/myims');
+        if (in_array(Auth::user()->designation, [4.1, 3, 5]))
+            return redirect('/instructionalmaterials/evaluate');
+        else {
+            return redirect('/myims');
+        }
     }
 })->middleware('auth');
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if (Auth::user()->type == 2) {
+        return redirect('/admin');
+    } else {
+        if (in_array(Auth::user()->designation, [4.1, 3, 5]))
+            return redirect('/instructionalmaterials/evaluate');
+        else {
+            return redirect('/myims');
+        }
+    }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

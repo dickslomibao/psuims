@@ -214,7 +214,7 @@
                                 <option value="3">C.F.L</option>
                                 <option value="4.1">University Evaluator</option>
                                 <option value="5">V.P</option>
-                                <option value="6">GP</option>
+                                {{-- <option value="6">GP</option> --}}
                             </select>
 
                         </div>
